@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../../../types/data';
+import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,36 +8,32 @@ import {Item} from '../../../types/data';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
-  items: Array<Item>;
-  constructor() { }
+  items: Array<Item> = [
+    {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '二维码生成', type: '开发类', describe: '实现各种大小的二维码生成，可以插入图片。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '二维码生成', type: '开发类', describe: '实现各种大小的二维码生成，可以插入图片。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '二维码生成', type: '开发类', describe: '实现各种大小的二维码生成，可以插入图片。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '二维码生成', type: '开发类', describe: '实现各种大小的二维码生成，可以插入图片。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '二维码生成', type: '开发类', describe: '实现各种大小的二维码生成，可以插入图片。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '二维码生成', type: '开发类', describe: '实现各种大小的二维码生成，可以插入图片。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
+    {title: '二维码生成', type: '开发类', describe: '实现各种大小的二维码生成，可以插入图片。', path: '../../../assets/imgs/demo.jpg'},
+  ];
+  formData = this.fb.group({
+    searchContent: [],
+  });
+  constructor(private fb: FormBuilder) { }
 
 
   ngOnInit(): void {
-    this.items = [
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-      {title: '进制转换', type: '开发类', describe: '实现不同进制数值之间的转换，支持小数的进制转换。', path: '../../../assets/imgs/demo.jpg'},
-
-    ];
   }
 
+  onSubmit() {
+
+  }
 }

@@ -9,6 +9,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatCardModule} from "@angular/material/card";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {MatCardModule} from "@angular/material/card";
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
