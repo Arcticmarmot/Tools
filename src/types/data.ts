@@ -3,4 +3,5 @@ export interface Item {
   type: string;
   describe: string;
   path: string;
+  name: string;
 }
