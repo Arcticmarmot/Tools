@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ScaleModule} from './scale/scale.module';
-import { ToolsComponent } from './tools.component';
-import {ToolsRoutingModule} from "./tools-routing.module";
+import {ScaleModule} from "./scale/scale.module";
 
 
 
 @NgModule({
-  declarations: [ToolsComponent],
+  declarations: [],
   imports: [
     CommonModule,
     ScaleModule,
-    ToolsRoutingModule
   ],
   exports: [
     ScaleModule

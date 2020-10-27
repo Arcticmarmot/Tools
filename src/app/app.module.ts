@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {PagesModule} from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToolsModule} from "./tools/tools.module";
+import {HomeModule} from "./pages/home/home.module";
 
 @NgModule({
   declarations: [
@@ -13,8 +14,7 @@ import {ToolsModule} from "./tools/tools.module";
   ],
   imports: [
     BrowserModule,
-    PagesModule,
-    ToolsModule,
+    HomeModule,
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
