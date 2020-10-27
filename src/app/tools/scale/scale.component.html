@@ -5,8 +5,18 @@
     </div>
   </div>
   <div class="content">
-    <input matInput class="input-scale" [placeholder]="'请输入进制'" value="2">
-
+    <form class="scale-form" (ngSubmit)="onSubmit()" [formGroup]="formData">
+      <mat-form-field class="input-scale">
+        <input matInput placeholder="请输入数值" formControlName="number">
+      </mat-form-field>
+      <mat-radio-group formControlName="scale">
+        <mat-radio-button value="2">2进制</mat-radio-button>
+        <mat-radio-button value="8">8进制</mat-radio-button>
+        <mat-radio-button value="10">10进制</mat-radio-button>
+        <mat-radio-button value="16">16进制</mat-radio-button>
+      </mat-radio-group>
+      <button mat-button type="submit">计算</button>
+    </form>
   </div>
 </div>
 
