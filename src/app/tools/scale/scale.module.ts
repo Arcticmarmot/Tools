@@ -6,6 +6,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from "@angular/material/radio";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -15,8 +17,10 @@ import {MatButtonModule} from "@angular/material/button";
     MatInputModule,
     ScaleRoutingModule,
     MatRadioModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatListModule,
   ]
 })
 export class ScaleModule { }

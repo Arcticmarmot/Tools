@@ -17,6 +17,13 @@
       </mat-radio-group>
       <button mat-button type="submit">计算</button>
     </form>
+    <mat-list role="list" *ngIf="isComputed">
+      <mat-list-item role="listitem">2进制:{{result[0]}}</mat-list-item>
+      <mat-list-item role="listitem">8进制:{{result[1]}}</mat-list-item>
+      <mat-list-item role="listitem">10进制:{{result[2]}}</mat-list-item>
+      <mat-list-item role="listitem">16进制:{{result[3]}}</mat-list-item>
+    </mat-list>
+
   </div>
 </div>
 
