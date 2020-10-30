@@ -7,6 +7,8 @@ import {PagesModule} from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToolsModule} from "./tools/tools.module";
 import {HomeModule} from "./pages/home/home.module";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import {HomeModule} from "./pages/home/home.module";
     HomeModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

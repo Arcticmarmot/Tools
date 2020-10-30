@@ -1,10 +1,6 @@
 <div id="scale">
   <div class="wrap">
-    <div class="header">
-      <div class="sub-title">
-        <strong>进制转换</strong>
-      </div>
-    </div>
+    <app-title [title]="'进制转换'"></app-title>
     <div class="content">
       <form class="scale-form" (ngSubmit)="onSubmit()" [formGroup]="formData">
         <mat-form-field class="input-scale">

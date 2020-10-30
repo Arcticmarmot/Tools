@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'tools/scale',
     loadChildren: () => import('./tools/scale/scale.module').then(mod => mod.ScaleModule),
   },
+  {
+    path: 'tools/qr-code',
+    loadChildren: () => import('./tools/qr-code/qr-code.module').then(mod => mod.QrCodeModule),
+  },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home'}
 ];
