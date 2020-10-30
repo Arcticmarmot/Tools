@@ -1,51 +1,54 @@
 @import "../../../assets/styles/custom";
 #home{
   height: auto;
-  width: 1600px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  .header{
-    width: 100%;
-    .search-wrap{
-      height: 100%;
+  justify-content: center;
+  .wrap{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    .header{
       width: 100%;
-      padding: 30px;
-      .search-form{
+      .search-wrap{
         height: 100%;
         width: 100%;
-        display: flex;
-        justify-content: center;
-        mat-form-field{
-          width: 50%;
-          font-size: 25px;
-        }
-      }
-
-    }
-  }
-  .content{
-
-    mat-grid-tile{
-      mat-card{
-        background: aliceblue;
-        width: 70%;
-        height: 70%;
-        mat-card-header{
-          mat-card-title{
-            font-weight: bold;
-          }
-        }
-        mat-card-actions{
-          position: absolute;
-          right: 20px;
-          button{
-            font-weight: bold;
-            font-size: 18px;
+        padding: 30px;
+        .search-form{
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          mat-form-field{
+            width: 50%;
+            font-size: 25px;
           }
         }
       }
-
+    }
+    .content{
+      display: flex;
+        mat-card{
+          background: aliceblue;
+          width: 250px;
+          height: 180px;
+          margin-right: 50px;
+          mat-card-header{
+            mat-card-title{
+              font-weight: bold;
+            }
+          }
+          mat-card-actions{
+            position: absolute;
+            right: 20px;
+            button{
+              font-weight: bold;
+              font-size: 18px;
+            }
+          }
+        }
     }
   }
+
 
 }

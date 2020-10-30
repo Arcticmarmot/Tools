@@ -10,6 +10,19 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="mat-typography">
+
   <app-root></app-root>
+  <script>
+    (function(){
+      // rem适配
+      var width = screen.width;
+      var height = screen.height;
+      // 以屏幕宽度750px为例  2/15*750 = 100 所以在屏幕宽度750px下1rem = 100px
+      var fontSize = 2/15*width;
+      document.documentElement.style.fontSize = fontSize + "px";
+      var app = document.getElementById("app");
+      app.style.height = height + "px";
+    })();
+  </script>
 <script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
 </html>

@@ -1,42 +1,44 @@
 <div id="scale">
-  <div class="header">
-    <div class="sub-title">
-      <strong>进制转换</strong>
+  <div class="wrap">
+    <div class="header">
+      <div class="sub-title">
+        <strong>进制转换</strong>
+      </div>
+    </div>
+    <div class="content">
+      <form class="scale-form" (ngSubmit)="onSubmit()" [formGroup]="formData">
+        <mat-form-field class="input-scale">
+          <input matInput placeholder="请输入数值" formControlName="number">
+        </mat-form-field>
+        <mat-radio-group formControlName="scale">
+          <mat-radio-button value="2">2进制</mat-radio-button>
+          <mat-radio-button value="8">8进制</mat-radio-button>
+          <mat-radio-button value="10">10进制</mat-radio-button>
+          <mat-radio-button value="16">16进制</mat-radio-button>
+        </mat-radio-group>
+        <button mat-button type="submit">计算</button>
+      </form>
+      <mat-list role="list" *ngIf="isComputed">
+        <h3 mat-subheader>计算结果:</h3>
+        <mat-list-item role="listitem">
+          <mat-icon mat-list-icon>done</mat-icon>
+          <h4 mat-line>2进制: {{result[0]}}</h4>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-icon mat-list-icon>done</mat-icon>
+          <h4 mat-line>8进制: {{result[1]}}</h4>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-icon mat-list-icon>done</mat-icon>
+          <h4 mat-line>10进制: {{result[2]}}</h4>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-icon mat-list-icon>done</mat-icon>
+          <h4 mat-line>16进制: {{result[3]}}</h4>
+        </mat-list-item>
+      </mat-list>
     </div>
   </div>
-  <div class="content">
-    <form class="scale-form" (ngSubmit)="onSubmit()" [formGroup]="formData">
-      <mat-form-field class="input-scale">
-        <input matInput placeholder="请输入数值" formControlName="number">
-      </mat-form-field>
-      <mat-radio-group formControlName="scale">
-        <mat-radio-button value="2">2进制</mat-radio-button>
-        <mat-radio-button value="8">8进制</mat-radio-button>
-        <mat-radio-button value="10">10进制</mat-radio-button>
-        <mat-radio-button value="16">16进制</mat-radio-button>
-      </mat-radio-group>
-      <button mat-button type="submit">计算</button>
-    </form>
-    <mat-list role="list" *ngIf="isComputed">
-      <h3 mat-subheader>计算结果:</h3>
-      <mat-list-item role="listitem">
-        <mat-icon mat-list-icon>done</mat-icon>
-        <h4 mat-line>2进制: {{result[0]}}</h4>
-      </mat-list-item>
-      <mat-list-item role="listitem">
-        <mat-icon mat-list-icon>done</mat-icon>
-        <h4 mat-line>8进制: {{result[1]}}</h4>
-      </mat-list-item>
-      <mat-list-item role="listitem">
-        <mat-icon mat-list-icon>done</mat-icon>
-        <h4 mat-line>10进制: {{result[2]}}</h4>
-      </mat-list-item>
-      <mat-list-item role="listitem">
-        <mat-icon mat-list-icon>done</mat-icon>
-        <h4 mat-line>16进制: {{result[3]}}</h4>
-      </mat-list-item>
-    </mat-list>
 
-  </div>
 </div>
 
