@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatListModule} from "@angular/material/list";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {MatListModule} from "@angular/material/list";
     ReactiveFormsModule,
     MatButtonModule,
     MatListModule,
+    MatIconModule,
   ]
 })
 export class ScaleModule { }

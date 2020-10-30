@@ -13,26 +13,35 @@ export function XToN(num: Array<number>): Array<string> {
   const result = [];
   const value = Number(num.join(''));
   console.log(value);
-  function compute(scale) {
+  function compute(computeScale) {
     const subResult = [];
     let v = value;
-    while (Math.floor(v / scale)) {
-      subResult.push(v % scale);
-      v = Math.floor(v / scale);
-      console.log('hello', Math.floor(v / scale));
+    while (Math.floor(v / computeScale)) {
+      subResult.push(v % computeScale);
+      v = Math.floor(v / computeScale);
     }
-    subResult.push(v % scale);
+    subResult.push(v % computeScale);
+    // reverse
+    for (const i in subResult) {
+      if ((Number(i) + 1) <= (subResult.length / 2)) {
+        const temp = subResult[subResult.length - 1 - Number(i)];
+        subResult[subResult.length - 1 - Number(i)] = subResult[i];
+        subResult[i] = temp;
+      }
+    }
     return numbersToStrings(subResult).join('');
   }
   result.push(compute(2));
   result.push(compute(8));
-  result.push(compute(10));
+  result.push(num.join(''));
   result.push(compute(16));
   console.log(result);
   return result;
 }
 export function stringsToNumbers(arrs) {
+  // tslint:disable-next-line:forin
   for (const i in arrs) {
+    arrs[i] = arrs[i].toLowerCase();
     if (arrs[i].charCodeAt(0) > 58) {
       arrs[i] = arrs[i].charCodeAt(0) - 87;
     } else {

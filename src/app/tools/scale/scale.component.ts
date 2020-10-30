@@ -18,6 +18,9 @@ export class ScaleComponent implements OnInit {
   constructor(private fb: FormBuilder, public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.formData.controls.number.valueChanges.subscribe(value => {
+      this.isComputed = false;
+    });
   }
 
   onSubmit() {
@@ -29,28 +32,35 @@ export class ScaleComponent implements OnInit {
       this.isComputed = true;
     } else {
       this.snackBar.open('数值与进制不匹配', 'OK', {duration: 2000});
+      this.isComputed = false;
     }
   }
   validate(num: string, scale: string): boolean {
     if (!num) {
       return false;
     }
+    const re2 = /[01]+/;
+    const re8 = /[0-7]+/;
+    const rex = /[0-9]+/;
+    const re0x = /[0-9abcdefABCDEF]+/;
+    let group;
     switch (scale) {
       case '2':
-        const re2 = /[01]+/;
-        return num === num.match(re2)[0];
+        group = num.match(re2);
+        break;
       case '8':
-        const re8 = /[0-7]+/;
-        return num === num.match(re8)[0];
+        group = num.match(re8);
+        break;
       case '10':
-        const rex = /[0-9]+/;
-        return num === num.match(rex)[0];
+        group = num.match(rex);
+        break;
       case '16':
-        const re0x = /[0-9abcdef]+/;
-        return num === num.match(re0x)[0];
+        group = num.match(re0x);
+        break;
       default:
         return false;
     }
+    return group && num === group[0];
   }
   transfer(num, scale): Array<number> {
     if (num.startsWith('0')) {
