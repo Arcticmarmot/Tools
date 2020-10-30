@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {NToX, XToN} from '../../../constants/scale/fn';
+import {NToX, stringsToNumbers, XToN} from '../../../constants/scale/fn';
 
 @Component({
   selector: 'app-scale',
@@ -56,15 +56,7 @@ export class ScaleComponent implements OnInit {
     if (num.startsWith('0')) {
       this.transfer(num.replace('0', ''), scale);
     }
-    num = num.split('');
-    for (const i in num) {
-      if (num[i].charCodeAt(0) - 48 > 10) {
-        num[i] = num[i].charCodeAt(0) - 87;
-      } else {
-        num[i] = num[i].charCodeAt(0) - 48;
-      }
-    }
-    return [num, Number(scale)];
+    return [stringsToNumbers(num.split('')), Number(scale)];
   }
   compute(num, scale): Array<string> {
     console.log(num, scale);
