@@ -2,7 +2,33 @@
   <div class="wrap">
     <app-title [title]="'二维码生成'"></app-title>
     <div class="content">
-      <qrcode [qrdata]="'https://smalltools.club'" [width]="'256'" [errorCorrectionLevel]="'M'"></qrcode>
+      <form (ngSubmit)="onSubmit()" [formGroup]="formData">
+        <mat-form-field class="data">
+          <input matInput formControlName="data" placeholder="请输入内容">
+        </mat-form-field>
+        <div class="width-slider">
+          <mat-label>宽度</mat-label><mat-slider
+          formControlName="width"
+          max="1000"
+          min="10"
+          thumbLabel
+          tickInterval="1"
+        ></mat-slider>
+        </div>
+        <div class="color-wrap">
+          <mat-form-field class="color">
+            <mat-label>深色</mat-label>
+            <input type="color" matInput value="#000000" formControlName="darkColor"/>
+          </mat-form-field>
+          <mat-form-field class="color">
+            <mat-label>浅色</mat-label>
+            <input type="color" matInput value="#FFFFFF" formControlName="lightColor"/>
+          </mat-form-field>
+        </div>
+        <button mat-button>生成</button>
+
+      </form>
+      <qrcode [qrdata]="'aa'" [width]="100" [errorCorrectionLevel]="'M'" scale="100" version="3"></qrcode>
     </div>
   </div>
 </div>
