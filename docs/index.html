@@ -4,25 +4,60 @@
   <meta charset="utf-8">
   <title>Tools</title>
   <base href="/">
+  <script>
+    (function(designWidth, maxWidth) {
+      var doc = document,
+        win = window,
+        docEl = doc.documentElement,
+        remStyle = document.createElement("style"),
+        tid;
+
+      function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        maxWidth = maxWidth || 540;
+        width>maxWidth && (width=maxWidth);
+        var rem = width * 100 / designWidth;
+        remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+      }
+
+      if (docEl.firstElementChild) {
+        docEl.firstElementChild.appendChild(remStyle);
+      } else {
+        var wrap = doc.createElement("div");
+        wrap.appendChild(remStyle);
+        doc.write(wrap.innerHTML);
+        wrap = null;
+      }
+      //要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+      refreshRem();
+
+      win.addEventListener("resize", function() {
+        clearTimeout(tid); //防止执行两次
+        tid = setTimeout(refreshRem, 300);
+      }, false);
+
+      win.addEventListener("pageshow", function(e) {
+        if (e.persisted) { // 浏览器后退的时候重新计算
+          clearTimeout(tid);
+          tid = setTimeout(refreshRem, 300);
+        }
+      }, false);
+
+      if (doc.readyState === "complete") {
+        doc.body.style.fontSize = "16px";
+      } else {
+        doc.addEventListener("DOMContentLoaded", function(e) {
+          doc.body.style.fontSize = "16px";
+        }, false);
+      }
+    })(750, 750);
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="mat-typography">
-
   <app-root></app-root>
-  <script>
-    (function(){
-      // rem适配
-      var width = screen.width;
-      var height = screen.height;
-      // 以屏幕宽度750px为例  2/15*750 = 100 所以在屏幕宽度750px下1rem = 100px
-      var fontSize = 2/15*width;
-      document.documentElement.style.fontSize = fontSize + "px";
-      var app = document.getElementById("app");
-      app.style.height = height + "px";
-    })();
-  </script>
 <script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
 </html>
