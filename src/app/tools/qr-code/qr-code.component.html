@@ -18,17 +18,26 @@
         <div class="color-wrap">
           <mat-form-field class="color">
             <mat-label>深色</mat-label>
-            <input type="color" matInput value="#000000" formControlName="darkColor"/>
+            <input type="color" matInput formControlName="colorDark">
           </mat-form-field>
           <mat-form-field class="color">
             <mat-label>浅色</mat-label>
-            <input type="color" matInput value="#FFFFFF" formControlName="lightColor"/>
+            <input type="color" matInput formControlName="colorLignt">
           </mat-form-field>
         </div>
         <button mat-button>生成</button>
 
       </form>
-      <qrcode [qrdata]="'aa'" [width]="100" [errorCorrectionLevel]="'M'" scale="100" version="3"></qrcode>
+      <div class="qr-code-wrap">
+        <qrcode *ngIf="qrConfig"
+                allowEmptyString="true"
+                elementType="img"
+                errorCorrectionLevel="Q"
+                [qrdata]="qrConfig.data"
+                [width]="qrConfig.width"
+                [colorDark]="qrConfig.colorDark"
+                [colorLight]="qrConfig.colorLignt"></qrcode>
+      </div>
     </div>
   </div>
 </div>

@@ -5,3 +5,9 @@ export interface Item {
   path: string;
   name: string;
 }
+export interface QRConfig {
+  data: string;
+  width: number;
+  colorDark: string;
+  colorLignt: string;
+}

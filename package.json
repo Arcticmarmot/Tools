@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --outputPath=docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "deploy": "ng deploy --cname=smalltools.club",
     "postinstall": "ngcc"
   },
   "private": true,
