@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
 import {QRConfig} from "../../../types/data";
+import html2canvas from "html2canvas";
 
 @Component({
   selector: 'app-qr-code',
@@ -9,7 +10,7 @@ import {QRConfig} from "../../../types/data";
 })
 export class QrCodeComponent implements OnInit {
   formData = this.fb.group({
-    data: ['https://smalltools.club'],
+    data: ['https://smalltools.club', Validators.required],
     width: [512],
     colorDark: ['#000000'],
     colorLignt: ['#FFFFFF']
@@ -24,5 +25,12 @@ export class QrCodeComponent implements OnInit {
 
   onSubmit() {
     this.qrConfig = this.formData.value;
+  }
+
+  saveQRCode() {
+    const qrCode = document.getElementById('qr-code-wrap');
+    const canvas = qrCode.getElementsByTagName('canvas')[0];
+    const saveImage = qrCode.getElementsByTagName('a')[0];
+    saveImage.href = canvas.toDataURL('image/jpeg');
   }
 }

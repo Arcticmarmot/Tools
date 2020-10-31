@@ -5,6 +5,9 @@
       <form (ngSubmit)="onSubmit()" [formGroup]="formData">
         <mat-form-field class="data">
           <input matInput formControlName="data" placeholder="请输入内容">
+          <mat-error *ngIf="formData.controls.data.hasError('required')">
+            请输入内容
+          </mat-error>
         </mat-form-field>
         <div class="width-slider">
           <mat-label>宽度</mat-label><mat-slider
@@ -25,18 +28,20 @@
             <input type="color" matInput formControlName="colorLignt">
           </mat-form-field>
         </div>
-        <button mat-button>生成</button>
+        <button mat-button [disabled]="!formData.valid">生成</button>
 
       </form>
-      <div class="qr-code-wrap">
-        <qrcode *ngIf="qrConfig"
+      <div id="qr-code-wrap" *ngIf="qrConfig">
+        <qrcode id="qr-code-canvas"
                 allowEmptyString="true"
-                elementType="img"
+                elementType="canvas"
                 errorCorrectionLevel="Q"
                 [qrdata]="qrConfig.data"
                 [width]="qrConfig.width"
                 [colorDark]="qrConfig.colorDark"
-                [colorLight]="qrConfig.colorLignt"></qrcode>
+                [colorLight]="qrConfig.colorLignt">
+        </qrcode>
+        <a id="save-image" mat-button href="" (click)="saveQRCode()" download="qrcode.png">保存图片</a>
       </div>
     </div>
   </div>
