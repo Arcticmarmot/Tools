@@ -9,5 +9,5 @@ export interface QRConfig {
   data: string;
   width: number;
   colorDark: string;
-  colorLignt: string;
+  colorLight: string;
 }

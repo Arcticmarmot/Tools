@@ -1,7 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import {QRConfig} from "../../../types/data";
-import html2canvas from "html2canvas";
+import {QRConfig} from '../../../types/data';
 
 @Component({
   selector: 'app-qr-code',
@@ -13,7 +12,7 @@ export class QrCodeComponent implements OnInit {
     data: ['https://smalltools.club', Validators.required],
     width: [512],
     colorDark: ['#000000'],
-    colorLignt: ['#FFFFFF']
+    colorLight: ['#FFFFFF']
   });
   qrConfig: QRConfig;
 

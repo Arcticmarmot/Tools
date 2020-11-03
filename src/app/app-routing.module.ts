@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'tools/qr-code',
     loadChildren: () => import('./tools/qr-code/qr-code.module').then(mod => mod.QrCodeModule),
   },
+  {
+    path: 'tools/code-runner',
+    loadChildren: () => import('./tools/code-runner/code-runner.module').then(mod => mod.CodeRunnerModule),
+  },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home'}
 ];
