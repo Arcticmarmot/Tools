@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NToX, stringsToNumbers, XToN} from '../../../constants/scale/fn';
 
@@ -39,10 +39,10 @@ export class ScaleComponent implements OnInit {
     if (!num) {
       return false;
     }
-    const re2 = /[01]+/;
-    const re8 = /[0-7]+/;
-    const rex = /[0-9]+/;
-    const re0x = /[0-9abcdefABCDEF]+/;
+    const re2 = /[01]+[.]?[01]*/;
+    const re8 = /[0-7.]+[.]?[0-7]*/;
+    const rex = /[0-9.]+[.]?[0-9]*/;
+    const re0x = /[0-9.abcdefABCDEF]+[.]?[0-9.abcdefABCDEF]*/;
     let group;
     switch (scale) {
       case '2':
@@ -69,7 +69,6 @@ export class ScaleComponent implements OnInit {
     return [stringsToNumbers(num.split('')), Number(scale)];
   }
   compute(num, scale): Array<string> {
-    console.log(num, scale);
     let X = num;
     if (scale !== 10) {
       X = NToX(num, scale);

@@ -1,21 +1,52 @@
 // 任意进制转换为10进制
 export function NToX(num, scale): Array<number> {
   let sum = 0;
+  // 获取整数和小数部分
+  const [integers, decimals] = num.join('').split('.');
   // tslint:disable-next-line:forin
-  for (const i in num) {
-    sum += num[i] * Math.pow(scale, num.length - 1 - Number(i));
+  for (const i in integers) {
+    sum += integers[i] * Math.pow(scale, integers.length - 1 - Number(i));
+  }
+  if (decimals) {
+    // tslint:disable-next-line:forin
+    for (const i in decimals) {
+      sum += decimals[i] * Math.pow(scale, -(Number(i) + 1));
+    }
   }
   return stringsToNumbers(sum.toString().split(''));
 }
 // 十进制转换为任意进制
 export function XToN(num: Array<number>): Array<string> {
-  console.log(num);
   const result = [];
-  const value = Number(num.join(''));
-  console.log(value);
-  function compute(computeScale) {
+  const [integers, decimals] = num.join('').split('.');
+  const integersValue = Number(integers);
+  if (decimals) {
+    const decimalsValue = Number('.' + decimals);
+    function decimalCompute(computeScale) {
+      const subResult = [];
+      const temps = [];
+      let v = decimalsValue;
+      while (temps.indexOf(v) === -1) {
+        temps.push(v);
+        subResult.push(Math.floor((v * computeScale)));
+        v = (v * computeScale) % 1;
+      }
+      subResult.pop();
+      return numbersToStrings(subResult).join('');
+    }
+    result.push(integerCompute(2) + '.' + decimalCompute(2));
+    result.push(integerCompute(8) + '.' + decimalCompute(8));
+    result.push(num.join(''));
+    result.push(integerCompute(16) + '.' + decimalCompute(16));
+  } else {
+    result.push(integerCompute(2));
+    result.push(integerCompute(8));
+    result.push(num.join(''));
+    result.push(integerCompute(16));
+  }
+  function integerCompute(computeScale) {
     const subResult = [];
-    let v = value;
+    let v = integersValue;
     while (Math.floor(v / computeScale)) {
       subResult.push(v % computeScale);
       v = Math.floor(v / computeScale);
@@ -31,10 +62,6 @@ export function XToN(num: Array<number>): Array<string> {
     }
     return numbersToStrings(subResult).join('');
   }
-  result.push(compute(2));
-  result.push(compute(8));
-  result.push(num.join(''));
-  result.push(compute(16));
   console.log(result);
   return result;
 }
@@ -42,10 +69,12 @@ export function stringsToNumbers(arrs) {
   // tslint:disable-next-line:forin
   for (const i in arrs) {
     arrs[i] = arrs[i].toLowerCase();
-    if (arrs[i].charCodeAt(0) > 58) {
-      arrs[i] = arrs[i].charCodeAt(0) - 87;
-    } else {
-      arrs[i] = arrs[i].charCodeAt(0) - 48;
+    if (arrs[i] !== '.') {
+      if (arrs[i].charCodeAt(0) > 58) {
+        arrs[i] = arrs[i].charCodeAt(0) - 87;
+      } else {
+        arrs[i] = arrs[i].charCodeAt(0) - 48;
+      }
     }
   }
   return arrs;
