@@ -40,9 +40,9 @@ export class ScaleComponent implements OnInit {
       return false;
     }
     const re2 = /[01]+[.]?[01]*/;
-    const re8 = /[0-7.]+[.]?[0-7]*/;
-    const rex = /[0-9.]+[.]?[0-9]*/;
-    const re0x = /[0-9.abcdefABCDEF]+[.]?[0-9.abcdefABCDEF]*/;
+    const re8 = /[0-7]+[.]?[0-7]*/;
+    const rex = /[0-9]+[.]?[0-9]*/;
+    const re0x = /[0-9abcdefABCDEF]+[.]?[0-9abcdefABCDEF]*/;
     let group;
     switch (scale) {
       case '2':

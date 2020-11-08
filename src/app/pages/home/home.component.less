@@ -13,7 +13,7 @@
       .search-wrap{
         height: 100%;
         width: 100%;
-        padding: 30px;
+        padding: 0.6rem;
         .search-form{
           height: 100%;
           width: 100%;
@@ -21,7 +21,7 @@
           justify-content: center;
           mat-form-field{
             width: 50%;
-            font-size: 25px;
+            font-size: 0.5rem;
           }
         }
       }
@@ -33,31 +33,44 @@
       justify-content: center;
         mat-card{
           background: @white;
-          width: 240px;
-          height: 180px;
-          margin: 50px;
+          width: 5rem;
+          height: 4rem;
+          margin: 1rem;
           mat-card-header{
-            height: 60px;
+            height: 1.2rem;
+            .sub-logo{
+              width: 0.8rem;
+              height: 0.8rem;
+            }
             mat-card-title{
+              word-break:keep-all;
+              font-size: 0.4rem;
               font-weight: bold;
+              width: 100%;
+              margin-bottom: 0.2rem;
+            }
+            mat-card-subtitle{
+              font-size: 0.2rem;
+              margin-bottom: 0.2rem;
             }
           }
           mat-card-content{
-            height: 60px;
+            height: 1.2rem;
+            font-size: 0.3rem;
           }
           mat-card-actions{
-            height: 60px;
+            height: 1.2rem;
             position: absolute;
-            right: 20px;
+            right: 0.4rem;
             button{
+              height: 0.8rem;
+              width: 1.6rem;
               background-color: @blue;
               font-weight: bold;
-              font-size: 18px;
+              font-size: 0.36rem;
             }
           }
         }
     }
   }
-
-
 }

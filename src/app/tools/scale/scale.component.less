@@ -5,59 +5,47 @@
   display: flex;
   justify-content: center;
   .wrap{
-    width: 80%;
-    .header{
-      width: 100%;
-      height: 150px;
-      .sub-title{
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 50px;
-        color: @black;
-        letter-spacing: 5px;
-      }
-    }
     .content{
-      width: 100%;
-      height: 900px;
       display: flex;
       flex-direction: column;
       align-items: center;
       form{
-        width: 40%;
-        min-width: 500px;
-        height: 400px;
+        width: 12rem;
+        height: 10rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         .input-scale{
           width: 100%;
-          font-size: 25px;
+          font-size: 0.5rem;
+        }
+        mat-label{
+          font-size: 0.36rem;
         }
         mat-radio-group{
           width: 100%;
-          height: 150px;
-          font-size: 18px;
+          height: 3rem;
+          font-size: 0.36rem;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
         }
         button{
           width: 100%;
-          height: 50px;
-          font-size: 20px;
+          height: 1.2rem;
+          font-size: 0.4rem;
           background-color: @blue;
         }
       }
       mat-list{
-        width: 60%;
-        margin-top: 100px;
+        width: 12rem;
+        margin-top: 2rem;
         mat-list-item{
-          font-size: 18px;
-          min-width: 1000px;
+          font-size: 0.36rem;
+          h4{
+            white-space: inherit;
+            word-break: break-all;
+          }
         }
       }
     }

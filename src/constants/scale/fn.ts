@@ -2,7 +2,15 @@
 export function NToX(num, scale): Array<number> {
   let sum = 0;
   // 获取整数和小数部分
-  const [integers, decimals] = num.join('').split('.');
+  let integers;
+  let decimals;
+  const index = num.indexOf('.');
+  if (index !== -1) {
+    integers = num.slice(0, index);
+    decimals = num.slice(index + 1);
+  } else {
+    integers = num;
+  }
   // tslint:disable-next-line:forin
   for (const i in integers) {
     sum += integers[i] * Math.pow(scale, integers.length - 1 - Number(i));
@@ -81,6 +89,7 @@ export function stringsToNumbers(arrs) {
 }
 function numbersToStrings(arrs) {
   for (const i in arrs) {
+    console.log(typeof(arrs[i]), arrs[i]);
     if (arrs[i] > 9) {
       arrs[i] = String.fromCharCode(arrs[i] + 87);
     } else {
