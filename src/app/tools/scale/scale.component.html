@@ -19,19 +19,27 @@
         <h3 mat-subheader>计算结果:</h3>
         <mat-list-item role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 mat-line>2进制: {{result[0]}}</h4>
+          <h4 (click)="copyResult($event)" mat-line>
+            2进制: {{result[0]}}
+          </h4>
         </mat-list-item>
         <mat-list-item role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 mat-line>8进制: {{result[1]}}</h4>
+          <h4 (click)="copyResult($event)" mat-line>
+            8进制: {{result[1]}}
+          </h4>
         </mat-list-item>
         <mat-list-item role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 mat-line>10进制: {{result[2]}}</h4>
+          <h4 (click)="copyResult($event)" mat-line>
+            10进制: {{result[2]}}
+          </h4>
         </mat-list-item>
         <mat-list-item role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 mat-line>16进制: {{result[3]}}</h4>
+          <h4 (click)="copyResult($event)" mat-line>
+            16进制: {{result[3]}}
+          </h4>
         </mat-list-item>
       </mat-list>
     </div>

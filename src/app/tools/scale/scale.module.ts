@@ -10,6 +10,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {TitleModule} from "../templates/title/title.module";
+import {ClipboardModule} from "ngx-clipboard";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {TitleModule} from "../templates/title/title.module";
   imports: [
     CommonModule,
     MatInputModule,
+    ClipboardModule,
     ScaleRoutingModule,
     MatRadioModule,
     MatSnackBarModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NToX, stringsToNumbers, XToN} from '../../../constants/scale/fn';
+import {ClipboardService, IClipboardResponse} from 'ngx-clipboard';
 
 @Component({
   selector: 'app-scale',
@@ -15,12 +16,15 @@ export class ScaleComponent implements OnInit {
   });
   isComputed = false;
   result: Array<string>;
-  constructor(private fb: FormBuilder, public snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder,
+              public snackBar: MatSnackBar,
+              private clipboardService: ClipboardService) { }
 
   ngOnInit(): void {
     this.formData.controls.number.valueChanges.subscribe(value => {
       this.isComputed = false;
     });
+    this.handleClipboardResponse();
   }
 
   onSubmit() {
@@ -74,5 +78,19 @@ export class ScaleComponent implements OnInit {
       X = NToX(num, scale);
     }
     return XToN(X);
+  }
+
+  copyResult(e) {
+    this.clipboardService.copy(e.target.innerText.split(': ')[1]);
+  }
+
+  private handleClipboardResponse() {
+    this.clipboardService.copyResponse$.subscribe((res: IClipboardResponse) => {
+      if (res.isSuccess) {
+        this.snackBar.open('复制成功', 'OK', {duration: 2000});
+      } else {
+        this.snackBar.open('复制失败', 'OK', {duration: 2000});
+      }
+    });
   }
 }
