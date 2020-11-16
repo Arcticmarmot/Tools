@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {NToX, stringsToNumbers, XToN} from '../../../constants/scale/fn';
+import {stringsToNumbers} from '../../../constants/scale/fn';
 import {ClipboardService, IClipboardResponse} from 'ngx-clipboard';
+import {ScaleNumber} from './classes/ScaleNumber';
 
 @Component({
   selector: 'app-scale',
@@ -32,7 +33,8 @@ export class ScaleComponent implements OnInit {
     const scale = this.formData.controls.scale.value;
     if (this.validate(num, scale)) {
       const [transNum, transScale] = this.transfer(num, scale);
-      this.result = this.compute(transNum, transScale);
+      const sc = new ScaleNumber(transNum, transScale);
+      this.result = sc.result;
       this.isComputed = true;
     } else {
       this.snackBar.open('数值与进制不匹配', 'OK', {duration: 2000});
@@ -43,10 +45,10 @@ export class ScaleComponent implements OnInit {
     if (!num) {
       return false;
     }
-    const re2 = /[01]+[.]?[01]*/;
-    const re8 = /[0-7]+[.]?[0-7]*/;
-    const rex = /[0-9]+[.]?[0-9]*/;
-    const re0x = /[0-9abcdefABCDEF]+[.]?[0-9abcdefABCDEF]*/;
+    const re2 = /[01 ]+[.]?[01 ]*/;
+    const re8 = /[0-7 ]+[.]?[0-7 ]*/;
+    const rex = /[0-9 ]+[.]?[0-9 ]*/;
+    const re0x = /[0-9abcdefABCDEF ]+[.]?[0-9abcdefABCDEF ]*/;
     let group;
     switch (scale) {
       case '2':
@@ -66,18 +68,14 @@ export class ScaleComponent implements OnInit {
     }
     return group && num === group[0];
   }
-  transfer(num, scale): Array<number> {
-    if (num.startsWith('0')) {
-      this.transfer(num.replace('0', ''), scale);
+  transfer(num, scale) {
+    while (num.startsWith('0')) {
+      num = num.replace('0', '');
+    }
+    while (num.indexOf(' ') !== -1) {
+      num = num.replace(' ', '');
     }
     return [stringsToNumbers(num.split('')), Number(scale)];
-  }
-  compute(num, scale): Array<string> {
-    let X = num;
-    if (scale !== 10) {
-      X = NToX(num, scale);
-    }
-    return XToN(X);
   }
 
   copyResult(e) {
