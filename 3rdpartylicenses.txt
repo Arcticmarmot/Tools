@@ -189,6 +189,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+ngx-clipboard
+MIT
+
+ngx-window-token
+MIT
+
 qrcode
 MIT
 The MIT License (MIT)
