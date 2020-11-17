@@ -1,14 +1,20 @@
 <div id="app">
   <div class="header">
-    <div class="left" (click)="routeHome()">
-      <div class="logo">
-        <strong>---</strong>
-        <strong> | </strong>
+    <div class="top">
+      <div class="logo" (click)="routeHome()">
+        <img src="../assets/imgs/blacksword2.png">
+        <strong>黑刀</strong>
       </div>
     </div>
-    <div class="right">
-      <mat-icon matTooltip="1048000853@qq.com" matTooltipPosition="left">mail</mat-icon>
+    <div class="bottom">
+      <div class="left">
+
+      </div>
+      <div class="right">
+        <mat-icon matTooltip="1048000853@qq.com" matTooltipPosition="left">mail</mat-icon>
+      </div>
     </div>
+
   </div>
   <div class="content">
     <router-outlet></router-outlet>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../../../types/data';
 import {FormBuilder} from '@angular/forms';
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import {FormBuilder} from '@angular/forms';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
+  searchItem: string;
   items: Array<Item> = [
     {title: '代码在线运行', type: '开发类', describe: '各种语言代码在线运行。',
       path: '../../../assets/imgs/demo.jpg', name: 'code-runner'},
@@ -19,13 +21,16 @@ export class HomeComponent implements OnInit {
   formData = this.fb.group({
     searchContent: [],
   });
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private route: Router) { }
 
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-
+    this.route.navigate([this.searchItem]);
+  }
+  setSearchItem(name: string) {
+    this.searchItem = 'tools/' + name;
   }
 }
