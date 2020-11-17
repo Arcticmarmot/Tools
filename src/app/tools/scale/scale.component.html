@@ -4,7 +4,7 @@
     <div class="content">
       <form class="scale-form" (ngSubmit)="onSubmit()" [formGroup]="formData">
         <mat-form-field class="input-scale">
-          <input matInput placeholder="请输入数值" formControlName="number">
+          <input matInput placeholder="请输入数值" formControlName="number" autofocus>
         </mat-form-field>
         <mat-label><strong>数值的进制</strong></mat-label>
         <mat-radio-group formControlName="scale">
@@ -17,29 +17,29 @@
       </form>
       <mat-list role="list" *ngIf="isComputed">
         <h3 mat-subheader>计算结果:</h3>
-        <mat-list-item role="listitem">
+        <mat-list-item class="result-wrap" role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 (click)="copyResult($event)" mat-line>
-            2进制: {{result[0]}}
-          </h4>
+          <a (click)="copyResult($event)" mat-line>
+            2进制: {{result.scale2}}
+          </a>
         </mat-list-item>
-        <mat-list-item role="listitem">
+        <mat-list-item class="result-wrap" role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 (click)="copyResult($event)" mat-line>
-            8进制: {{result[1]}}
-          </h4>
+          <a (click)="copyResult($event)" mat-line>
+            8进制: {{result.scale8}}
+          </a>
         </mat-list-item>
-        <mat-list-item role="listitem">
+        <mat-list-item class="result-wrap" role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 (click)="copyResult($event)" mat-line>
-            10进制: {{result[2]}}
-          </h4>
+          <a (click)="copyResult($event)" mat-line>
+            10进制: {{result.scale10}}
+          </a>
         </mat-list-item>
-        <mat-list-item role="listitem">
+        <mat-list-item class="result-wrap" role="listitem">
           <mat-icon mat-list-icon>done</mat-icon>
-          <h4 (click)="copyResult($event)" mat-line>
-            16进制: {{result[3]}}
-          </h4>
+          <a (click)="copyResult($event)" mat-line>
+            16进制: {{result.scale16}}
+          </a>
         </mat-list-item>
       </mat-list>
     </div>

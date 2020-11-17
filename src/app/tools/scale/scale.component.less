@@ -40,13 +40,16 @@
       mat-list{
         width: 12rem;
         margin-top: 2rem;
-        mat-list-item{
+        .result-wrap{
           font-size: 0.36rem;
-          h4{
-            cursor: pointer;
+          a{
             white-space: inherit;
             word-break: break-all;
           }
+        }
+        .result-wrap:hover{
+          cursor: pointer;
+          background: @blue;
         }
       }
     }

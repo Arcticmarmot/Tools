@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {stringsToNumbers} from '../../../constants/scale/fn';
 import {ClipboardService, IClipboardResponse} from 'ngx-clipboard';
-import {ScaleNumber} from './classes/ScaleNumber';
+import {ScaleNumber} from '../../../constants/scale/classes/ScaleNumber';
+import {ComputedResult} from '../../../constants/scale/types/data';
 
 @Component({
   selector: 'app-scale',
@@ -16,13 +16,13 @@ export class ScaleComponent implements OnInit {
     scale: []
   });
   isComputed = false;
-  result: Array<string>;
+  result: ComputedResult;
   constructor(private fb: FormBuilder,
               public snackBar: MatSnackBar,
               private clipboardService: ClipboardService) { }
 
   ngOnInit(): void {
-    this.formData.controls.number.valueChanges.subscribe(value => {
+    this.formData.valueChanges.subscribe(value => {
       this.isComputed = false;
     });
     this.handleClipboardResponse();
@@ -75,7 +75,7 @@ export class ScaleComponent implements OnInit {
     while (num.indexOf(' ') !== -1) {
       num = num.replace(' ', '');
     }
-    return [stringsToNumbers(num.split('')), Number(scale)];
+    return [num, Number(scale)];
   }
 
   copyResult(e) {
