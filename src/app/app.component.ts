@@ -7,8 +7,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'Tools';
-
   constructor(private route: Router) {
   }
   routeHome() {

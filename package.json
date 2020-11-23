@@ -7,7 +7,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng deploy --cname=smalltools.club",
+    "deploy": "ng deploy --cname=blacksword.cn",
     "postinstall": "ngcc"
   },
   "private": true,
