@@ -10,6 +10,7 @@ export class CodeRunnerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
