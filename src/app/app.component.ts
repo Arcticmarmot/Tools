@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,19 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  constructor(private route: Router) {
+  isBlank = true;
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url === '/') {
+          this.isBlank = true;
+        } else {
+          this.isBlank = false;
+        }
+      }
+    });
   }
   routeHome() {
-    this.route.navigate(['home']);
+    this.router.navigate(['home']);
   }
 }

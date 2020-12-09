@@ -16,8 +16,8 @@ const routes: Routes = [
     path: 'tools/code-runner',
     loadChildren: () => import('./tools/code-runner/code-runner.module').then(mod => mod.CodeRunnerModule),
   },
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', redirectTo: '/home'}
+  //{path: '', redirectTo: '/home', pathMatch: 'full'},
+  //{path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({

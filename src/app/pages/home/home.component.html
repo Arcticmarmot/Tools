@@ -1,4 +1,13 @@
 <div id="home">
+  <mat-sidenav-container>
+    <mat-sidenav mode="push" #sidenav opened>
+      <a routerLink="/tools/scale">hello</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <!--
   <div class="wrap">
     <div class="header">
       <div class="search-wrap">
@@ -41,5 +50,5 @@
         </mat-card>
     </div>
   </div>
-
+  -->
 </div>

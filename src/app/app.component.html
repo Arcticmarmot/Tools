@@ -1,4 +1,36 @@
 <div id="app">
+  <div class="wrap">
+    <div class="header">
+      <mat-toolbar color="primary">
+        <span (click)="sidenav.toggle()"><img src="../assets/imgs/logo2.svg"/></span>
+
+        <!-- This fills the remaining space of the current row -->
+        <span class="fill-remaining-space"></span>
+
+        <span><mat-icon matTooltip="1048000853@qq.com" matTooltipPosition="left">mail</mat-icon></span>
+      </mat-toolbar>
+    </div>
+    <div class="content">
+      <mat-sidenav-container hasBackdrop=false>
+        <mat-sidenav mode="push" #sidenav>
+          <a routerLink="/tools/scale">进制转换</a>
+          <div class="footer">
+            <p>Copyright ©2020 Arcticmarmot</p>
+            <p>Powered by MEAN</p>
+          </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <div *ngIf="isBlank">
+            选择工具
+          </div>
+          <div class="content-wrap">
+            <router-outlet></router-outlet>
+          </div>
+
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
+  </div>
   <!--<div class="header">
     <div class="top">
       <div class="logo" (click)="routeHome()">
@@ -13,7 +45,7 @@
         <mat-icon matTooltip="1048000853@qq.com" matTooltipPosition="left">mail</mat-icon>
       </div>
     </div>
-  </div>-->
+  </div>
 
   <div class="header">
     <div class="top">
@@ -25,16 +57,6 @@
 
     </div>
   </div>
-  <div class="wrap">
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-
-
-    <div class="footer">
-      <p>Copyright ©2020 Arcticmarmot</p>
-      <p>Powered by MEAN</p>
-    </div>
-  </div>
+  -->
 </div>
 
