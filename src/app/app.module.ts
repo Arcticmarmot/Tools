@@ -8,21 +8,23 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    HomeModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSidenavModule,
-    MatToolbarModule,
-  ],
+    imports: [
+        BrowserModule,
+        HomeModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
