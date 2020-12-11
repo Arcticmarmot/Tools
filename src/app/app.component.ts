@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
+import {NavigationEnd, Router} from '@angular/router';
 import {TOOLS} from '../constants/constant';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {MatSidenav} from "@angular/material/sidenav";
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ import {MatSidenav} from "@angular/material/sidenav";
       state('close', style({
       })),
       transition('*=>*', [
-        animate('0ms 100ms ease-out')
+        animate('0ms 50ms ease-out')
       ]),
     ])
   ],
@@ -30,11 +30,7 @@ export class AppComponent implements AfterViewInit {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url === '/') {
-          this.isBlank = true;
-        } else {
-          this.isBlank = false;
-        }
+        this.isBlank = event.url === '/';
       }
     });
 

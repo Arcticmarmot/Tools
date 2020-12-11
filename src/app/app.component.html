@@ -2,7 +2,9 @@
   <div class="wrap">
     <div class="header">
       <mat-toolbar color="primary">
-        <span id="collapse" (click)="sidenav.toggle()">收起</span>
+        <button mat-button id="collapse" (click)="sidenav.toggle()">
+          <mat-icon>subject</mat-icon>
+        </button>
         <span id="logo" (click)="routeHome()" [@collapse]="collapse()">
           <img src="../assets/imgs/logo2.svg" />
         </span>
@@ -15,7 +17,7 @@
     </div>
     <div class="content">
       <mat-sidenav-container hasBackdrop=false autosize>
-        <mat-sidenav mode="side" #sidenav>
+        <mat-sidenav mode="side" #sidenav opened>
           <mat-nav-list>
             <a mat-list-item routerLink="/tools/{{i.name}}" *ngFor="let i of tools"> {{i.title}} </a>
           </mat-nav-list>
@@ -26,8 +28,8 @@
         </mat-sidenav>
         <!--[ngStyle]="{'width':sidenav.opened ? '80%' : '100%' }"-->
         <div class="sidenav-content">
-          <div *ngIf="isBlank">
-            选择工具
+          <div class="blank-content" *ngIf="isBlank">
+            <span>点击左侧选择工具</span>
           </div>
           <div class="content-wrap">
             <router-outlet></router-outlet>
