@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ScaleModule} from "./scale/scale.module";
-import {QrCodeModule} from "./qr-code/qr-code.module";
-import {TimestampModule} from "./timestamp/timestamp.module";
-
+import {ScaleModule} from './scale/scale.module';
+import {QrCodeModule} from './qr-code/qr-code.module';
+import {TimestampModule} from './timestamp/timestamp.module';
 
 
 @NgModule({
@@ -17,7 +16,7 @@ import {TimestampModule} from "./timestamp/timestamp.module";
   exports: [
     ScaleModule,
     QrCodeModule,
-    TimestampModule
+    TimestampModule,
   ]
 })
 export class ToolsModule { }

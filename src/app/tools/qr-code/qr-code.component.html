@@ -1,49 +1,48 @@
-<div id="qr-code">
-  <div class="wrap">
-    <app-title [title]="'二维码生成'"></app-title>
-    <div class="content">
-      <form (ngSubmit)="onSubmit()" [formGroup]="formData">
-        <mat-form-field class="data">
-          <input matInput formControlName="data" placeholder="请输入内容">
-          <mat-error *ngIf="formData.controls.data.hasError('required')">
-            请输入内容
-          </mat-error>
-        </mat-form-field>
-        <div class="width-slider">
-          <mat-label>宽度</mat-label>
-          <mat-slider
-            formControlName="width"
-            max="1000"
-            min="10"
-            thumbLabel
-            tickInterval="1"
-          ></mat-slider>
-        </div>
-        <div class="color-wrap">
-          <mat-form-field class="color">
-            <mat-label>深色</mat-label>
-            <input type="color" matInput formControlName="colorDark">
-          </mat-form-field>
-          <mat-form-field class="color">
-            <mat-label>浅色</mat-label>
-            <input type="color" matInput formControlName="colorLight">
-          </mat-form-field>
-        </div>
-        <button mat-button [disabled]="!formData.valid">生成</button>
-      </form>
-      <div id="qr-code-wrap" *ngIf="qrConfig">
-        <qrcode id="qr-code-canvas"
-                allowEmptyString="true"
-                elementType="canvas"
-                errorCorrectionLevel="Q"
-                [qrdata]="qrConfig.data"
-                [width]="qrConfig.width"
-                [colorDark]="qrConfig.colorDark"
-                [colorLight]="qrConfig.colorLight">
-        </qrcode>
-        <a id="save-image" mat-button href="" (click)="saveQRCode()" download="qrcode.png">保存图片</a>
+<app-tool-template [title]="'二维码生成'">
+  <div class="content">
+    <form (ngSubmit)="onSubmit()" [formGroup]="formData">
+      <mat-form-field class="data">
+        <input matInput formControlName="data" placeholder="请输入内容">
+        <mat-error *ngIf="formData.controls.data.hasError('required')">
+          请输入内容
+        </mat-error>
+      </mat-form-field>
+      <div class="width-slider">
+        <mat-label>宽度</mat-label>
+        <mat-slider
+          formControlName="width"
+          max="1000"
+          min="10"
+          thumbLabel
+          tickInterval="1"
+        ></mat-slider>
       </div>
+      <div class="color-wrap">
+        <mat-form-field class="color">
+          <mat-label>深色</mat-label>
+          <input type="color" matInput formControlName="colorDark">
+        </mat-form-field>
+        <mat-form-field class="color">
+          <mat-label>浅色</mat-label>
+          <input type="color" matInput formControlName="colorLight">
+        </mat-form-field>
+      </div>
+      <button mat-button [disabled]="!formData.valid">生成</button>
+    </form>
+    <div id="qr-code-wrap" *ngIf="qrConfig">
+      <qrcode id="qr-code-canvas"
+              allowEmptyString="true"
+              elementType="canvas"
+              errorCorrectionLevel="Q"
+              [qrdata]="qrConfig.data"
+              [width]="qrConfig.width"
+              [colorDark]="qrConfig.colorDark"
+              [colorLight]="qrConfig.colorLight">
+      </qrcode>
+      <a id="save-image" mat-button href="" (click)="saveQRCode()" download="qrcode.png">保存图片</a>
     </div>
   </div>
-</div>
+</app-tool-template>
+
+
 

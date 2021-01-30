@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {TOOLS} from '../constants/constant';
 import {animate, state, style, transition, trigger} from '@angular/animations';
