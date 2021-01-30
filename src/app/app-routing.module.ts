@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
   {
     path: 'tools/scale',
     loadChildren: () => import('./tools/scale/scale.module').then(mod => mod.ScaleModule),
@@ -13,11 +11,11 @@ const routes: Routes = [
     loadChildren: () => import('./tools/qr-code/qr-code.module').then(mod => mod.QrCodeModule),
   },
   {
-    path: 'tools/code-runner',
-    loadChildren: () => import('./tools/code-runner/code-runner.module').then(mod => mod.CodeRunnerModule),
+    path: 'tools/timestamp',
+    loadChildren: () => import('./tools/timestamp/timestamp.module').then(mod => mod.TimestampModule),
   },
-  //{path: '', redirectTo: '/home', pathMatch: 'full'},
-  //{path: '**', redirectTo: '/home'}
+  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '**', redirectTo: '/'}
 ];
 
 @NgModule({

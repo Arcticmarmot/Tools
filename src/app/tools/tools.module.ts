@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ScaleModule} from "./scale/scale.module";
 import {QrCodeModule} from "./qr-code/qr-code.module";
-import { TitleComponent } from './templates/title/title.component';
+import {TimestampModule} from "./timestamp/timestamp.module";
 
 
 
@@ -11,11 +11,13 @@ import { TitleComponent } from './templates/title/title.component';
   imports: [
     CommonModule,
     ScaleModule,
-    QrCodeModule
+    QrCodeModule,
+    TimestampModule
   ],
   exports: [
     ScaleModule,
     QrCodeModule,
+    TimestampModule
   ]
 })
 export class ToolsModule { }

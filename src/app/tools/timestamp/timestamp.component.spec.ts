@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CodeRunnerComponent } from './code-runner.component';
+import { TimestampComponent } from './timestamp.component';
 
-describe('CodeRunnerComponent', () => {
-  let component: CodeRunnerComponent;
-  let fixture: ComponentFixture<CodeRunnerComponent>;
+describe('TimestampComponent', () => {
+  let component: TimestampComponent;
+  let fixture: ComponentFixture<TimestampComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CodeRunnerComponent ]
+      declarations: [ TimestampComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CodeRunnerComponent);
+    fixture = TestBed.createComponent(TimestampComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

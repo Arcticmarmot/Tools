@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HomeModule} from "./pages/home/home.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSidenavModule} from "@angular/material/sidenav";
@@ -18,7 +17,6 @@ import {MatButtonModule} from "@angular/material/button";
   ],
   imports: [
     BrowserModule,
-    HomeModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
