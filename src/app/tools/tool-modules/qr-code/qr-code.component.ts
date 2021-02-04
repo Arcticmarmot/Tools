@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import {QRConfig} from '../../../types/data';
+import {QRConfig} from '../../../../types/data';
 
 @Component({
   selector: 'app-qr-code',

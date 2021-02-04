@@ -4,14 +4,14 @@
       <mat-form-field class="input-scale">
         <input matInput placeholder="请输入数值" formControlName="number" autofocus>
       </mat-form-field>
-      <mat-label><strong>数值的进制</strong></mat-label>
+      <mat-label><strong>输入数值的进制</strong></mat-label>
       <mat-radio-group formControlName="scale">
         <mat-radio-button value="2">2进制</mat-radio-button>
         <mat-radio-button value="8">8进制</mat-radio-button>
         <mat-radio-button value="10">10进制</mat-radio-button>
         <mat-radio-button value="16">16进制</mat-radio-button>
       </mat-radio-group>
-      <button mat-button type="submit">计算</button>
+      <button class="full-mat-button" mat-raised-button color="primary" type="submit">计算</button>
     </form>
     <mat-list role="list" *ngIf="isComputed">
       <h3 mat-subheader>计算结果:</h3>

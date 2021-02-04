@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-timestamp',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timestamp.component.less']
 })
 export class TimestampComponent implements OnInit {
-
-  constructor() { }
+  formData = this.fb.group({
+    inputTimestamp: [],
+  });
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+
+  }
 }

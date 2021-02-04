@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ClipboardService, IClipboardResponse} from 'ngx-clipboard';
-import {ScaleNumber} from '../../../constants/scale/classes/ScaleNumber';
-import {ComputedResult} from '../../../constants/scale/types/data';
+import {ScaleNumber} from '../../../../constants/scale/classes/ScaleNumber';
+import {ComputedResult} from '../../../../constants/scale/types/data';
 
 @Component({
   selector: 'app-scale',

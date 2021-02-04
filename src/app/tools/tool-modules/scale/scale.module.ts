@@ -10,8 +10,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {ClipboardModule} from 'ngx-clipboard';
-import {ToolTemplateModule} from '../templates/tool-template/tool-template.module';
-
+import {ToolTemplateModule} from '../../templates/tool-template/tool-template.module';
 @NgModule({
   declarations: [ScaleComponent],
   imports: [

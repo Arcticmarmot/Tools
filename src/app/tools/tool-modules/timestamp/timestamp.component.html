@@ -1,0 +1,10 @@
+<app-tool-template [title]="'时间戳转换'">
+  <div class="content">
+    <form (ngSubmit)="onSubmit()" [formGroup]="formData">
+      <mat-form-field class="full-mat-input">
+        <input matInput formControlName="inputTimestamp" placeholder="请输入要转换的时间戳">
+      </mat-form-field>
+      <button class="full-mat-button" mat-raised-button color="primary" type="submit">转换</button>
+    </form>
+  </div>
+</app-tool-template>

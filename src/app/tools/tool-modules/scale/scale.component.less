@@ -1,0 +1,44 @@
+@import "../../../../assets/styles/custom";
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  form{
+    width: 12rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .input-scale{
+      width: 100%;
+      font-size: 0.5rem;
+    }
+    mat-label{
+      font-size: 0.36rem;
+    }
+    mat-radio-group{
+      width: 100%;
+      height: 3rem;
+      font-size: 0.36rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  mat-list{
+    width: 12rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .result-wrap{
+      font-size: 0.36rem;
+      a{
+        white-space: inherit;
+        word-break: break-all;
+      }
+    }
+    .result-wrap:hover{
+      cursor: pointer;
+      background: @grey;
+    }
+  }
+}

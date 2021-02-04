@@ -27,7 +27,7 @@
           <input type="color" matInput formControlName="colorLight">
         </mat-form-field>
       </div>
-      <button mat-button [disabled]="!formData.valid">生成</button>
+      <button class="full-mat-button" mat-raised-button color="primary" [disabled]="!formData.valid">生成</button>
     </form>
     <div id="qr-code-wrap" *ngIf="qrConfig">
       <qrcode id="qr-code-canvas"
